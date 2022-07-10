@@ -13,8 +13,8 @@ Input Format
 You will be given two positive integers, a and b, where (a<=b), separated by a newline.
 
 Output Format
-img. [https://github.com/iakshatgandhi/Cpp-coding-/blob/5f881e2ff43dc06f50300f21caa7a26525efa8fe/Screenshot%202022-07-10%20171039.png](URL)
-Sample Input
+img.
+Sample Input0171039.png](URL
 
 8
 11
