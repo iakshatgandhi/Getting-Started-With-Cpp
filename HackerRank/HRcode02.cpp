@@ -35,7 +35,7 @@ int main() {
     cin>>a>>b;
     for(i=a;i<=b;i++){
     if(i==1){
-    cout<<"one";
+    cout<<"one"<<endl;
     }
     else if(i==2){
         cout<<"two"<<endl;
