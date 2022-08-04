@@ -14,7 +14,7 @@ You will be given two positive integers, a and b, where (a<=b), separated by a n
 
 Output Format
 img.
-Sample Input
+Sample Input0171039.png](URL
 
 8
 11
