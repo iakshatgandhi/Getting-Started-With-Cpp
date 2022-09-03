@@ -7,7 +7,7 @@ int main(){
     for(i=1;i<=n;i++){
         sum=sum+i;
     }
-cout<<"sum to n terms is"<<sum<<endl;
+cout<<"sum to n terms is "<<sum<<endl;
 return 0;
 }
 
