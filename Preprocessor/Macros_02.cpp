@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-#define AREA(l, b) (l * b)
+#define AREA(l, b) (l * b)           //We can also pass arguments to macros as in this case
 int main()
 {
     int l,b,area;
