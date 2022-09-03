@@ -17,7 +17,7 @@ void func2()
 	cout << "Inside func2()\n";
 }
 
-int main()
+int main()           //gcc compilor just not ab;e to run the code
 {
 	void func1();
 	void func2();
