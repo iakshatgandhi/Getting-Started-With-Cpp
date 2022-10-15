@@ -1,5 +1,8 @@
 {
     "editor.mouseWheelZoom": true,
     "editor.wordWrap": "on",
-    "C_Cpp.errorSquiggles": "Disabled"
+    "C_Cpp.errorSquiggles": "Disabled",
+    "files.associations": {
+        "iostream": "cpp"
+    }
 }
