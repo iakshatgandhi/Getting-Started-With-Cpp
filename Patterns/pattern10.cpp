@@ -19,7 +19,7 @@ for(i=1;i<=n;i++){
     }
     cout<<endl;
 }
-}*/
+}
 
 
 #include<iostream>
@@ -39,4 +39,34 @@ while(i<=n){
     cout<<endl;
     i++;
 }
+}
+*/
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+// int i,b,n,a;
+// cin>>n;
+// a=1;
+// b=1;
+// while(b<=n){
+//     for(i=b;i<=a;i++){
+//         cout<<i<<" ";
+//     }
+//     cout<<endl;
+//     a+=2;
+//     b++;
+// }
+// }
+#include<iostream>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    for(int i = 0;i<n;i++){
+        for(int j = 0;j<=i;j++){
+            cout<<i+j+1<<" ";
+        }
+        cout<<endl;
+    }
 }
