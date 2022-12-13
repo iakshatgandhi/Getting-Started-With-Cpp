@@ -3,6 +3,8 @@
     "editor.wordWrap": "on",
     "C_Cpp.errorSquiggles": "Disabled",
     "files.associations": {
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "random": "cpp",
+        "ostream": "cpp"
     }
 }
