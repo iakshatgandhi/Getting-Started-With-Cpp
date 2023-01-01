@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void rvereseArray(int arr[], int start, int end)
+void reverseArray(int arr[], int start, int end)
 {
 	while (start < end)
 	{
@@ -37,7 +37,7 @@ int main()
 	printArray(arr, n);
 	
 	// Function calling
-	rvereseArray(arr, 0, n-1);
+	reverseArray(arr, 0, n-1);
 	
 	cout << "Reversed array is" << endl;
 	

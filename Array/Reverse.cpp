@@ -3,7 +3,7 @@
 using namespace std;
 
 /* Function to reverse arr[] from start to end*/
-void rvereseArray(int arr[], int start, int end)
+void reverseArray(int arr[], int start, int end)
 {
 	while (start < end)
 	{
@@ -27,7 +27,7 @@ cout << endl;
 /* Driver function to test above functions */
 int main()
 {
-	int arr[] = {1, 2, 3, 4, 5, 6};
+	int arr[] = {78, 44, 13, 6, 54, 3, 31};
 	
 	int n = sizeof(arr) / sizeof(arr[0]);
 
@@ -35,7 +35,7 @@ int main()
 	printArray(arr, n);
 	
 	// Function calling
-	rvereseArray(arr, 0, n-1);
+	reverseArray(arr, 0, n-1);
 	
 	cout << "Reversed array is" << endl;
 	
