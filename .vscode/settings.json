@@ -6,5 +6,9 @@
         "iostream": "cpp",
         "random": "cpp",
         "ostream": "cpp"
-    }
+    },
+    "cSpell.words": [
+        "evenindex",
+        "oddindex"
+    ]
 }
