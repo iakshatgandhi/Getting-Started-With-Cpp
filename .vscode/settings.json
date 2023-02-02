@@ -10,5 +10,6 @@
     "cSpell.words": [
         "evenindex",
         "oddindex"
-    ]
+    ],
+    "C_Cpp.intelliSenseEngineFallback": "enabled"
 }
