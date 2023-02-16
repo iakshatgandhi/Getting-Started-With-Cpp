@@ -1,0 +1,29 @@
+#include<iostream>
+using namespace std;
+
+int reverse(char name[], int n ){
+    int start=0;
+    int end=n-1;
+    while(start<end){
+        swap(name[start],name[end]);
+        start++;
+        end--;
+    }
+}
+
+int getLength(char name[]){
+    int count=0;
+    for(int i=0;name[i]!='\0';i++){
+        count++;
+    }
+    return count;
+}
+int main(){
+    char name[20];
+    cout<<"enter your name "<<endl;
+    cin>>name;
+    int len=getLength(name);
+    cout<<"length is "<<len<<endl;
+    reverse(name,len);
+    cout<<name;
+}
