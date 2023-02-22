@@ -5,11 +5,14 @@
     "files.associations": {
         "iostream": "cpp",
         "random": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "xstring": "cpp"
     },
     "cSpell.words": [
+        "Akshat",
         "evenindex",
-        "oddindex"
+        "oddindex",
+        "skillset"
     ],
     "C_Cpp.intelliSenseEngineFallback": "enabled",
     "code-runner.executorMap": {
