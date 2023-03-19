@@ -5,6 +5,10 @@ int main(){
     string str1;
     cout<<"enter the first name ";
     cin>>str1;
+    int len=str1.length();
+    cout<<str1[0]<<endl;
+    cout<<str1[1]<<endl;
+    cout<<str1[len-1]<<endl;
 
     string str2;
     cout<<"enter the last name ";
