@@ -13,5 +13,5 @@ To get started with this repository, you will need to have a C++ compiler instal
 
 Visual Studio
 Xcode
-[GNU Compiler Collection (GCC)] (https://gcc.gnu.org/)
+[GNU Compiler Collection] (https://gcc.gnu.org/)
 Once you have a C++ compiler installed, you can clone this repository to your local machine using the following command:
