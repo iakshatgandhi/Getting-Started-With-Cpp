@@ -11,9 +11,9 @@ Getting Started
 
 To get started with this repository, you will need to have a C++ compiler installed on your machine. You can download a C++ compiler for your operating system from the following links:
 
-  [Visual Studio](https://visualstudio.microsoft.com/downloads/)
-  [Xcode](https://developer.apple.com/xcode/)
-  [GNU Compiler Collection](https://gcc.gnu.org/)
+  1.[Visual Studio](https://visualstudio.microsoft.com/downloads/)
+  2. [Xcode](https://developer.apple.com/xcode/)
+  3. [GNU Compiler Collection](https://gcc.gnu.org/)
 Once you have a C++ compiler installed, you can clone this repository to your local machine using the following command:
 
 git clone https://github.com/your-username/cpp-for-beginners-to-advanced.git
