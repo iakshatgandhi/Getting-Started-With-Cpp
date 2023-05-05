@@ -1,2 +1,20 @@
 # Cpp-coding-
-this is to tackel the problems faced during personal coding and have a cloud copy of the learnings
+C++ for Beginners to Advanced
+Welcome to the C++ for Beginners to Advanced GitHub repository! This repository is designed to help you learn and improve your C++ skills, regardless of your level of experience.
+
+Table of Contents
+Getting Started
+Course Outline
+Contributing
+License
+Getting Started
+
+To get started with this repository, you will need to have a C++ compiler installed on your machine. You can download a C++ compiler for your operating system from the following links:
+
+  1.[Visual Studio](https://visualstudio.microsoft.com/downloads/)
+  2. [Xcode](https://developer.apple.com/xcode/)
+  3. [GNU Compiler Collection](https://gcc.gnu.org/)
+Once you have a C++ compiler installed, you can clone this repository to your local machine using the following command:
+
+git clone https://github.com/your-username/cpp-for-beginners-to-advanced.git
+
