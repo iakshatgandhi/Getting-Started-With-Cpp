@@ -39,7 +39,7 @@ class student
     char name[50];
     double fee;
 
-    public:
+    public:  //defining the constructor within the class
 // Defining the constructor 
     student(){
         cout<<"enter the RollNo: ";
