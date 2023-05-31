@@ -27,7 +27,14 @@ void student::display(){
 }
 
 int main(){
-    student s;
+    student s;             // static allocation
+    student *s1 = new student;  //dynamic allocation
     s.display();
+    cout<<endl;
+    (*s1).display();     // this is dynamically allocated
+    // one more way to write the same
+    cout<<endl;
+    s1->display();
+
     return 0;
 }

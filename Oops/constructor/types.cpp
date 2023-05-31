@@ -43,16 +43,18 @@ private:
  
 public:
     // Parameterized Constructor
-    Point(int x1, int y1)
-    {
-        x = x1;
-        y = y1;
+    Point(int x1, int y)                   // consider a situation where the parameter passed is of the same name as of the data member
+    {                                       // here it creates an error
+        x = x1;                             
+        this -> y = y;
+        cout << this << endl;
     }
     // getters
     int getX() { return x; }
     int getY() { return y; }
 };
  
+// note: this keyword stores the current object address
 
 int main()
 {
@@ -60,7 +62,10 @@ int main()
     cout << "a: " << c.a << endl << "b: " << c.b;    // to access here we have to use the dot operator
     cout<<endl;
     Point p1(10,8);
-    cout<<"p1.x = "<<p1.getX()<<endl<<"p1.y = "<<p1.getY();
+    cout<<"p1.x = "<<p1.getX()<<endl<<"p1.y = "<<p1.getY()<<endl;
+    // this is basically a pointer to see that returns the same output
+    cout<< &p1;
+
 }
 
 
