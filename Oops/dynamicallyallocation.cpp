@@ -3,7 +3,7 @@ using namespace std;
 
 class Game {
     int Level;
-    string *mission;
+    string *mission = new string[10];
     public:
         int mode;
         int score; 
@@ -16,7 +16,7 @@ class Game {
             Level=l;
         } 
         void setMission(string m){
-            mission = new string[10];
+            *mission = m;
         }
 
         int getLevel(){
@@ -47,5 +47,11 @@ int main(){
     Game obj2(obj1);
     obj1.display();
     obj2.display();
+
+
+    obj1.setMission("Defend");
+    cout<<"the mission is "<<obj1.getMission()<< endl;
+    cout<<"the mission is "<<obj2.getMission()<< endl;
+
 
 }
