@@ -14,10 +14,11 @@ class Demo {
    Demo(int x = 0) {
       val = x;
    }
+   // this is the constructor 
    int getValue() const {
       return val;
    }
-};
+}; 
 int main() {
    const Demo d(28);
    Demo d1(8);

@@ -16,3 +16,5 @@ int main(){
 }
 
 // note: empty class holds a memory of 1 byte just for keeping the track of the defined class
+
+// the 3 bytes size ids due to the padding added

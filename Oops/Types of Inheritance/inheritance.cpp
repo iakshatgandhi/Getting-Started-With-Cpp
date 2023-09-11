@@ -33,7 +33,7 @@ class male : public human{
 
 
     void sleep(){
-        cout<<"male is sleeping"<<endl;
+        cout<<"is sleeping"<<endl;
     }
 };
 
@@ -48,4 +48,5 @@ int main(){
     cout<<"weight is: "<<obj1.weight<<endl;
     cout<<"age is: "<<obj1.age<<endl;
     cout<<"colour is: "<<obj1.colour<<endl;
+    obj1.sleep();
 }
