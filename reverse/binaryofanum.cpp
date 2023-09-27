@@ -12,5 +12,5 @@ int main(){
         n = n>>1;
         i++;
     }
-    cout<<"the binary reprasentation of the given no is "<<ans;
+    cout<<"the binary representation of the given no is "<<ans;
 }
