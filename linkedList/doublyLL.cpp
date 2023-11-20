@@ -65,6 +65,7 @@ void insertAtPosition(node* &tail, node* &head, int position, int data){
             cnt++;
         }
         // for the condition of tail updating
+        
         if(temp -> next == NULL){
             insertAtTail(tail, head, data);
             return;
@@ -76,8 +77,41 @@ void insertAtPosition(node* &tail, node* &head, int position, int data){
         newNode -> prev = temp;
         temp -> next = newNode;
     }
+// void insertAtPosition(node* &tail, node* &head, int position, int data){
+//     if(position == 1){
+//         insertAtHead(head, tail, data);
+//         return ;
+//     }
+
+//     node* temp = head;
+//     int cnt = 1;
+//     while(cnt < position-1 && temp != NULL){
+//         temp = temp->next;
+//         cnt++;
+//     }
+
+//     if(temp == NULL) {
+//         // The position is beyond the end of the list, insert at tail
+//         insertAtTail(tail, head, data);
+//         return;
+//     }
+
+//     node* newNode = new node(data);
+//     newNode->next = temp->next;
+//     if(temp->next != NULL) {
+//         temp->next->prev = newNode;
+//     }
+//     newNode->prev = temp;
+//     temp->next = newNode;
+
+//     // Check if the new node is the new tail
+//     if(newNode->next == NULL) {
+//         tail = newNode;
+//     }
+// }
+
 // Deletion of the node
-void deleteNode(int position, node* &head){
+void deleteNode(int position, node* &head, node* &tail){
     // starting node
     if(position == 1){
         node* temp = head;
@@ -98,9 +132,19 @@ void deleteNode(int position, node* &head){
             cur = cur -> next; 
             cnt++;  
         }
-        cur -> prev = NULL;
-        prev -> next = cur -> next;
-        cur -> next = NULL;
+        
+        if (cur->next != NULL) {
+            cur->next->prev = prev;  // Update the prev pointer of the next node
+        }
+        if(tail == cur ) {//tail is pointing the cur.
+            tail = cur -> prev;
+        }
+
+        prev->next = cur->next;
+
+        // making memory free
+        cur->next = NULL;
+        cur->prev = NULL;
         delete cur;
     }
 }
@@ -113,6 +157,16 @@ void display(node* &head){
     }
     cout << endl;
 }
+
+void displayReverse(node* &tail){
+    node* temp = tail;
+    while(temp != NULL){
+        cout << temp->data << " ";
+        temp = temp->prev;
+    }
+    cout << endl;
+}
+
 
 int getLength(node* &head){
     node* temp = head;
@@ -141,9 +195,9 @@ int main(){
     insertAtPosition(tail,head,6,5);
     display(head);
 
-    deleteNode(2,head);
-    deleteNode(1,head);
-    deleteNode(4,head);
+    deleteNode(2,head,tail);
+    deleteNode(1,head,tail);
+    deleteNode(4,head,tail);
     display(head);
-
+    displayReverse(tail);
 }

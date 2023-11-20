@@ -1,4 +1,5 @@
 #include<iostream>
+#include <map>
 using namespace std;
 
 class Node {
@@ -24,8 +25,6 @@ class Node {
 };
 
 void insertNode(Node* &tail, int element, int d) {
-    
-
     //empty list 
     if(tail == NULL) {
         Node* newNode = new Node(d);
@@ -42,7 +41,6 @@ void insertNode(Node* &tail, int element, int d) {
             curr = curr -> next;
         }
         
-        //element found -> curr is representing element node
         Node* temp = new Node(d);
         temp -> next = curr -> next;
         curr -> next = temp;
@@ -149,17 +147,66 @@ bool detectLoop(Node* head) {
     return false;
 
 }
+// Floyd Loop Detection
+Node* FloydLoopDetection(Node* head){
+    if(head == NULL){
+        return NULL;
+    }
 
+    Node* fast = head;
+    Node* slow = head;
+
+    while (fast != NULL && fast -> next != NULL){
+        fast = fast -> next;
+        if(fast -> next != NULL){
+            fast = fast -> next;
+        }
+        slow = slow -> next;
+
+        if(slow == fast){
+            cout<<"present at "<<slow -> data<<endl;
+            return slow;
+        }
+    }
+    return NULL;
+}
+
+Node* getStartingNode(Node* head){
+    if(head == NULL){
+        return NULL;
+    }
+    Node* intersectionPoint = FloydLoopDetection(head);
+    Node* slow = head;
+
+    while(slow != intersectionPoint){
+        slow = slow -> next;
+        intersectionPoint = intersectionPoint -> next;
+    }
+    return slow;
+}
+
+void removeLoop(Node* head){
+    if(head == NULL){
+        return NULL;
+    }
+    Node* intersectionPoint = FloydLoopDetection(head);
+    Node* temp = intersectionPoint;
+
+    while(temp -> next != intersectionPoint){
+        temp = temp -> next;
+    }
+    temp -> next = NULL;
+}
 
 int main() {
 
     Node* tail = NULL;
 
-   // insertNode(tail, 5, 3);
-    //print(tail);
+   insertNode(tail, 5, 3);
+    print(tail);
 
-  //  insertNode(tail, 3, 5);
-   // print(tail);
+   insertNode(tail, 3, 5);
+   print(tail);
 
 /*
     insertNode(tail, 5, 7);
@@ -181,13 +228,12 @@ int main() {
     deleteNode(tail, 5);
     print(tail);
      */
-
     if(isCircularList(tail)) {
         cout << " Linked List is Circular in nature" << endl;
     }
     else{
         cout << "Linked List is not Circular " << endl;
     }
-
+print (tail);
     return 0;
 }
