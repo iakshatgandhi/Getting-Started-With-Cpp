@@ -49,6 +49,28 @@ void insertAtPosition(node* &tail, node* &head, int position, int data){
         temp->next = newNode;
     }
 
+     void insertAfterNode(node* &head, int prevNode, int data) {
+        node* newNode = new node(data);
+
+        if (!head) {
+            cout << "Error: The list is empty." << endl;
+            return;
+        }
+
+        node* current = head;
+        while (current && current->data != prevNode) {
+            current = current->next;
+        }
+
+        if (!current) {
+            cout << "Error: Node with data " << data << " not found." << endl;
+            return;
+        }
+
+        newNode->next = current->next;
+        current->next = newNode;
+    }
+
     void display(node* &head){
         node* temp = head;
         while(temp != NULL){
@@ -81,6 +103,9 @@ int main(){
     display(head);
 
     insertAtPosition(tail,head,8,50);
+    
+
+    insertAfterNode(head, 20, 10);
     display(head);
     // there is another case its working fine but the tail pointer is not mapped to the last node
 
@@ -89,3 +114,114 @@ int main(){
 
     return 0;
 }
+
+
+
+/*
+public class Node {
+    public int data;
+    public Node next;
+
+    public Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+public class LinkedList {
+    public static void insertAtHead(Node head, int data) {
+        Node temp = new Node(data);
+        temp.next = head.next;
+        head.next = temp;
+    }
+
+    public static void insertAtTail(Node tail, int data) {
+        Node temp = new Node(data);
+        tail.next = temp;
+        tail = temp;
+    }
+
+    public static void insertAtPosition(Node tail, Node head, int position, int data) {
+        if (position == 1) {
+            insertAtHead(head, data);
+            return;
+        }
+
+        Node temp = head;
+        int cnt = 1;
+        while (cnt < position - 1) {
+            temp = temp.next;
+            cnt++;
+        }
+
+        if (temp.next == null) {
+            insertAtTail(tail, data);
+            return;
+        }
+
+        Node newNode = new Node(data);
+        newNode.next = temp.next;
+        temp.next = newNode;
+    }
+
+    public static void insertAfterNode(Node head, int prevNode, int data) {
+        Node newNode = new Node(data);
+
+        if (head == null) {
+            System.out.println("Error: The list is empty.");
+            return;
+        }
+
+        Node current = head;
+        while (current != null && current.data != prevNode) {
+            current = current.next;
+        }
+
+        if (current == null) {
+            System.out.println("Error: Node with data " + data + " not found.");
+            return;
+        }
+
+        newNode.next = current.next;
+        current.next = newNode;
+    }
+
+    public static void display(Node head) {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data + " ");
+            temp = temp.next;
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        Node node1 = new Node(6);
+        Node head = node1;
+        Node tail = node1;
+
+        display(head);
+
+        insertAtTail(tail, 20);
+        insertAtTail(tail, 30);
+        insertAtTail(tail, 40);
+
+        display(head);
+
+        insertAtPosition(tail, head, 4, 35);
+        insertAtPosition(tail, head, 2, 15);
+
+        insertAtPosition(tail, head, 1, 0);
+
+        display(head);
+
+        insertAtPosition(tail, head, 8, 50);
+
+        insertAfterNode(head, 20, 10);
+        display(head);
+
+        System.out.println("head " + head.data);
+        // Note: tail is not used and updated properly in the original C++ code.
+    }
+}
+*/
