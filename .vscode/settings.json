@@ -6,12 +6,19 @@
         "iostream": "cpp",
         "random": "cpp",
         "ostream": "cpp",
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "deque": "cpp",
+        "list": "cpp",
+        "queue": "cpp",
+        "vector": "cpp",
+        "xutility": "cpp"
     },
     "cSpell.words": [
         "Akshat",
+        "bidir",
         "evenindex",
         "Everytime",
+        "Implimentation",
         "Kadane’s",
         "oddindex",
         "Pseudocode",
