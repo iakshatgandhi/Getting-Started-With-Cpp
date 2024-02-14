@@ -55,3 +55,8 @@ int main() {
     g.printAdjList();
     return 0;
 }
+
+// what is m and n?
+// m is the number of edges in the graph and n is the number of vertices in the graph.
+//why the loop is running for m times?
+//The loop runs m times because we are taking m edges as input, and for each edge, we add it to the adjacency list using the addEdge function.
