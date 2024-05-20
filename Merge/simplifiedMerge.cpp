@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-void merge(int *arr, int start, int end){
+void merge(int arr[], int start, int end){
     int mid = start+(end-start)/2;
     int len1 = mid - start + 1;
     int len2 = end - mid;
@@ -44,7 +44,7 @@ void merge(int *arr, int start, int end){
 
 }
 
-void mergeSort(int *arr, int s, int e){
+void mergeSort(int arr[], int s, int e){
     if(s>=e){
         return;
     }

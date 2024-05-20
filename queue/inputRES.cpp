@@ -82,7 +82,7 @@ void inputRestrictedQueue::deletefront()
  
         // Increment front by '1' to remove
         // current front value from Deque
-        front = front + 1;
+        front++;
 }
 void inputRestrictedQueue::deleterear()
 {

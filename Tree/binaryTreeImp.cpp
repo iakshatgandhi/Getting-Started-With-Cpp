@@ -15,16 +15,16 @@ class Node{
 };
 
 Node* buildTree(Node* root){
-    cout<<"enter the root data: ";
+    cout<<"enter the data: ";
     int data;
     cin>>data;
     if(data==-1){
         return NULL;
     }
     root = new Node(data);
-    cout<<"enter the left child of "<<data<<": ";
+    cout<<"enter the left child of "<<data<<": "<<endl;
     root->left = buildTree(root->left);
-    cout<<"enter the right child of "<<data<<": ";
+    cout<<"enter the right child of "<<data<<": "<<endl;
     root->right = buildTree(root->right);
 
     return root;
@@ -37,15 +37,24 @@ void levelOrderTraversal(Node* root){
 
     while(!q.empty()){
         Node* temp = q.front();
-        cout<<temp->data<<" ";
         q.pop();
 
-        if(temp->left){
-            q.push(temp->left);
+        if(temp==NULL){
+            cout<<endl;
+            if(!q.empty()){
+                q.push(NULL);
+            }
+            continue;
+        }else{
+            cout<<temp->data<<" ";
+            if(temp->left){
+                q.push(temp->left);
+            }
+            if(temp->right){
+                q.push(temp->right);
+            }
         }
-        if(temp->right){
-             q.push(temp->right);
-        }
+        
     }
 }
 
@@ -53,6 +62,7 @@ int main(){
     Node* root = NULL;
     // 1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1
     root = buildTree(root);
+    cout<<endl<<"Level Order Traversal: "<<endl;
     levelOrderTraversal(root);
 
     return 0;

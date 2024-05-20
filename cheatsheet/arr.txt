@@ -1,0 +1,127 @@
+array mutations 
+
+1. % is used to traverse 0 to n-1
+   always where the case of rotating into the array is considered.
+   aar[(i+k)%n]=arr[i]
+
+2. if two array are need to be added then
+   carry = sum/10
+   sum = sum%10
+
+3. to get the unique elements out of the array 
+   we can use the set data structure.    O(nlogn) time complexity    n for traversing the array and (log n) adding the elements to the set.
+
+4. k groups me iterate krne ke liye 
+    
+    for(int i=0;i<n;i+=k){
+        int start = i;
+        int end = min(i+k-1,n-1);
+                
+        while(start<end){
+            swap(arr[start++],arr[end--]);
+        }
+    }
+
+5. to get the maximum sum of the subarray of size k
+    we can use the sliding window approach.
+
+6. sort function in cpp is used to sort the array in ascending order.
+   sort(arr,arr+n); Time Complexity: O(N log N)
+
+   in descending order
+    sort(arr,arr+n,greater<int>());
+    sort() takes a third parameter that is used to specify the order in which elements are to be sorted. We can pass the “greater()” function to sort in descending order. This function does a comparison in a way that puts greater elements before. 
+
+    // Sort the elements which lies in the range of 2 to (n-1)
+    sort(arr + 2, arr + n);
+
+7. to get the maximum sum of the subarray of size k
+    we can use the sliding window approach.
+
+8. 1. Array Reverse Using an Extra Array (Non In-place):
+    int size = sizeof(arr) / sizeof(arr[0]);
+    int reversedArr[size];
+    for (int i = 0; i < size; i++) {
+        reversedArr[i] = arr[size - i - 1];
+    }
+
+    2. Array Reverse Using a Loop (In-place):
+
+    while (start < end) 
+    { 
+        int temp = arr[start]; 
+        arr[start] = arr[end]; 
+        arr[end] = temp; 
+        start++; 
+        end--; 
+    } 
+
+    3. Array Reverse Inbuilt Methods (Non In-place):
+
+        reverse(originalArray, originalArray + length);
+
+    4. Array Reverse Recursion (In-place or Non In-place):
+        if (start >= end) 
+            return; 
+     
+    int temp = arr[start]; 
+    arr[start] = arr[end]; 
+    arr[end] = temp; 
+     
+    // Recursive Function calling 
+    rvereseArray(arr, start + 1, end - 1);
+
+    5. Array Reverse Stack (Non In-place):
+
+    for (int i = 0; i < size; i++) {
+        stack.push(arr[i]);
+    }
+ 
+    // Pop elements from the stack to reverse the array
+    for (int i = 0; i < size; i++) {
+        arr[i] = stack.top();
+        stack.pop();
+    }
+
+9. int n = sizeof(arr) / sizeof(arr[0]);
+
+10. // Reversing elements from index 5 to index 7
+    reverse(vec1.begin() + 5, vec1.begin() + 8);
+
+11. nums.assign(remove.begin(), remove.end());
+    iterating over the set and adding the elements to the vector.
+
+12. iterating over the set
+    for(auto it=uniq.begin();it!=uniq.end();it++){
+        cout<<*it<<" ";
+    }
+
+    insert(): insert a new element. Its time complexity is O(logN) 
+
+13. #include <bits/stdc++.h>
+
+14. In C++ (and C), when you pass an array to a function, what's actually being passed is a pointer to the first element of the array. This means that the notations int *arr and int arr[] in function parameter declarations are, for all practical purposes in this context, equivalent. Both declare arr as a pointer to the first element of an integer array, and within the function, you can use arr as if it were an array.
+
+Thus, if you replace int *arr with int arr[] in the function arguments of merge and mergeSort, the code will still work correctly. The behavior and functionality of the program remain unchanged because, under the hood, array arguments are treated as pointers.
+
+15. Yes, the declaration int& *arr is incorrect in C++. The syntax tries to mix a pointer and a reference in a way that's not allowed by the language.
+
+Let's break down why it's incorrect:
+
+int& denotes an "int reference", which is an alias for another integer variable. References are not objects themselves; they are just another name for an existing object.
+*arr suggests that arr is supposed to be a pointer. The * operator dereferences the pointer, yielding the object it points to.
+When you combine int& and * in int& *arr, you're trying to declare arr as a pointer to a reference. This is not allowed in C++ because references are not objects themselves, so you can't have a pointer to a reference. The language doesn't support this kind of declaration.
+
+
+16, if there is a count there is a track or how many times it occurs in the array. there is a map to keep the track of the elements.
+
+17. usually, the map is used to keep the track of the elements and the count of the elements.
+        map<int,int> ans;
+        for(int i=0;i<n;i++){
+            int first = book[i];
+            int second = target - first;
+            if(ans.find(second) != ans.end()){
+                return "YES";
+            }
+            ans[first]=i;
+        }
