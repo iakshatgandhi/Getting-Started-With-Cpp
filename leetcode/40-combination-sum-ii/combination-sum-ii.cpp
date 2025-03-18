@@ -1,9 +1,9 @@
 class Solution {
 public:
-void findCombinations(int idx, int target, vector<int>& candidates, vector<int> &ds, set<vector<int>> &result){
+void findCombinations(int idx, int target, vector<int>& candidates, vector<int> &ds, vector<vector<int>> &result){
         if(idx == candidates.size()){
             if(target == 0){
-                result.insert(ds);
+                result.push_back(ds);
             }
             return;
         }
@@ -20,10 +20,10 @@ void findCombinations(int idx, int target, vector<int>& candidates, vector<int> 
     }
     vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
         sort(candidates.begin(), candidates.end());
-        set<vector<int>> result;
+        vector<vector<int>> result;
         vector<int> ds;
         findCombinations(0,target,candidates,ds,result);
-        return vector<vector<int>>(result.begin(), result.end());
+        return result;
     }
 };
 
