@@ -1,19 +1,14 @@
 class Solution {
 public:
-    long long Ncr(int n, int r){
-        long long res = 1;
-        for(int i=0;i<r;i++){
-            res = res*(n-i);
-            res = res/(i+1);
-        }
-        return res;
-    }
     vector<int> getRow(int rowIndex) {
-        vector<int> row;
-        for(int i=0;i<=rowIndex;i++){
-            int temp = Ncr(rowIndex,i);
-            row.push_back(temp);
+        vector<int> nline;
+        long long res = 1;
+        nline.push_back(res);
+        for(int i=1;i<=rowIndex;i++){
+            res = res*(rowIndex-i+1);
+            res = res/i;
+            nline.push_back(res);
         }
-        return row;
+        return nline;
     }
 };
