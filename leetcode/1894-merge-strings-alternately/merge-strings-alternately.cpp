@@ -9,8 +9,7 @@ public:
             i++;
             j++;
         }
-        result += word1.substr(i);
-        result += word2.substr(j);
+        result += word1.substr(i) + word2.substr(j);
         return result;
     }
 };
