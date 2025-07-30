@@ -2,15 +2,18 @@ class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
         int maxlen = 0;
-        for (int i = 0; i < s.length(); i++) {
-            unordered_map<char, int> track; // Reset for each starting i!
-            for (int j = i; j < s.length(); j++) {
-                if (track.find(s[j]) != track.end()) {
-                    break; // repeated character found!
+        int l=0,r=0;
+        unordered_map<char, int> track;
+        while(r<s.length()) {
+            if (track.find(s[r]) != track.end()) {
+                if(track[s[r]]>=l){
+                    l = track[s[r]] + 1;
                 }
-                track[s[j]] = 1; // mark as seen
-                maxlen = max(maxlen, j - i + 1);
             }
+            maxlen = max(maxlen, r - l + 1);
+            track[s[r]] = r;
+            r++;
+           
         }
         return maxlen;
     }
