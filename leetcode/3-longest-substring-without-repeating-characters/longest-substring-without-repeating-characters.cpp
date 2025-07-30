@@ -3,9 +3,12 @@ public:
     int lengthOfLongestSubstring(string s) {
         int maxlen = 0;
         int l=0,r=0;
-        unordered_map<char, int> track;
+        int track[255];
+        for (int i = 0; i < 255; ++i) {
+            track[i] = -1;
+        }
         while(r<s.length()) {
-            if (track.find(s[r]) != track.end()) {
+            if (track[s[r]] != -1) {
                 if(track[s[r]]>=l){
                     l = track[s[r]] + 1;
                 }
