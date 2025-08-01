@@ -10,6 +10,7 @@ public:
                 if (leftEmpty && rightEmpty) {
                     flowerbed[i] = 1;  // Plant here
                     n--;
+                    i++;
                 }
             }
         }
