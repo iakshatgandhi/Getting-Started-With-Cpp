@@ -1,34 +1,39 @@
 class Solution {
 public:
     int maxTotalFruits(vector<vector<int>>& fruits, int startPos, int k) {
-        // Find the rightmost position we might need.
-        int maxRight = max(startPos, fruits.back()[0]);
-
-        vector<int> amounts(maxRight + 2, 0);
-        for (const auto& f : fruits)
-            amounts[f[0]] = f[1];
-
-        // Build prefix sum to query total fruits in any range.
-        vector<int> prefix(maxRight + 3, 0);
-        partial_sum(amounts.begin(), amounts.end(), prefix.begin() + 1);
-
-        auto getFruits = [&](int leftSteps, int rightSteps) {
-            int l = max(0, startPos - leftSteps);
-            int r = min(maxRight, startPos + rightSteps);
-            return prefix[r + 1] - prefix[l];
-        };
-
-        int ans = 0;
-        // Go right first, then left.
-        for (int rightSteps = 0; rightSteps <= min(maxRight - startPos, k); ++rightSteps) {
-            int leftSteps = max(0, k - 2 * rightSteps);
-            ans = max(ans, getFruits(leftSteps, rightSteps));
+        int n = fruits.size();
+        vector<int> prefixSum(n);
+        vector<int> positions(n);
+        for(int i=0;i<n;i++){
+            positions[i] = fruits[i][0];
+            prefixSum[i] = fruits[i][1] + (i>0 ? prefixSum[i-1] : 0);
         }
-        // Go left first, then right.
-        for (int leftSteps = 0; leftSteps <= min(startPos, k); ++leftSteps) {
-            int rightSteps = max(0, k - 2 * leftSteps);
-            ans = max(ans, getFruits(leftSteps, rightSteps));
+        int maxfruits = 0;
+        for(int d=0;d<=k/2;d++){
+            // towards left
+            int i = startPos - d;
+            int j = startPos + (k-2*d);
+
+            int left = lower_bound(begin(positions), end(positions),i)-begin(positions);
+            int right = upper_bound(begin(positions), end(positions),j)-begin(positions)-1;
+            
+            if(left<=right){
+                int total = prefixSum[right] - (left>0 ? prefixSum[left-1] : 0);
+                maxfruits = max(maxfruits, total);
+            }
+
+            // towards right 
+            j = startPos + d;
+            i = startPos - (k-2*d);
+
+            left = lower_bound(begin(positions), end(positions),i)-begin(positions);
+            right = upper_bound(begin(positions), end(positions),j)-begin(positions)-1;
+            
+            if(left<=right){
+                int total = prefixSum[right] - (left>0 ? prefixSum[left-1] : 0);
+                maxfruits = max(maxfruits, total);
+            }
         }
-        return ans;
+        return maxfruits;
     }
 };
