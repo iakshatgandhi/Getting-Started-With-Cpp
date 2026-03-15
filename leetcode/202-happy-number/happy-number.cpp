@@ -3,18 +3,17 @@ public:
     int sqSum(int number){
         int sumSq = 0;
         while(number!=0){
-            int digit = number%10;
-            sumSq = sumSq + digit*digit;
+            sumSq = sumSq + pow((number%10),2);
             number/=10;
         }
         return sumSq;
     }
     bool isHappy(int n) {
-        unordered_set<int> track;
+        unordered_map<int,bool> track;
         while(n!=1){
             n = sqSum(n);
             if(track.find(n)!=track.end()) return false;
-            track.insert(n);
+            track[n]=1;
         }
         return true;
     }
