@@ -1,43 +1,53 @@
 class Solution {
 public:
     vector<int> parent;
-
-    int find(int x) {
-        if (parent[x] != x)
-            parent[x] = find(parent[x]); // path compression
-        return parent[x];
+    vector<int> rank;
+    int find(int idx){
+        if(parent[idx]!=idx){
+            parent[idx] = find(parent[idx]);
+        }
+        return parent[idx];
     }
+    void unio(int a, int b){
+        int a_rep = find(a);
+        int b_rep = find(b);
+        if(a_rep == b_rep) return;
 
-    void unite(int a, int b) {
-        parent[find(a)] = find(b);
+        if(rank[a_rep]<rank[b_rep]) parent[a_rep] = b_rep;
+        else if(rank[b_rep]<rank[a_rep]) parent[b_rep] = a_rep;
+        else{
+            parent[b_rep] = a_rep;
+            rank[a_rep]++;
+        }
     }
     int minimumHammingDistance(vector<int>& source, vector<int>& target, vector<vector<int>>& allowedSwaps) {
         int n = source.size();
         parent.resize(n);
-        iota(parent.begin(), parent.end(), 0); // parent[i] = i
+        rank.resize(n, 0);
+        iota(parent.begin(),parent.end(),0);
 
-        for (auto& sw : allowedSwaps)
-            unite(sw[0], sw[1]);
-
-        unordered_map<int, vector<int>> groups;
-        for (int i = 0; i < n; i++)
-            groups[find(i)].push_back(i);
-
-        int hamming = 0;
-        for (auto& [root, indices] : groups) {
-            unordered_map<int, int> srcCount;
-            for (int i : indices)
-                srcCount[source[i]]++;
-
-            for (int i : indices) {
-                int t = target[i];
-                if (srcCount.count(t) && srcCount[t] > 0)
-                    srcCount[t]--;
-                else
-                    hamming++;
-            }
+        for(auto& sw:allowedSwaps){
+            unio(sw[0],sw[1]);
         }
 
+        unordered_map<int,vector<int>> groups;
+        for(int i=0;i<n;i++){
+            groups[find(i)].push_back(i);
+        }
+
+        int hamming=0;
+        for(auto& g:groups){
+            unordered_map<int,int> freq;
+            for(int idx : g.second){
+                freq[source[idx]]++;
+            }
+
+            for(int idx : g.second){
+                int val = target[idx];
+                if(freq[val]>0) freq[val]--;
+                else hamming++;
+            }
+        }
         return hamming;
     }
 };
