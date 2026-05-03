@@ -20,36 +20,37 @@ public:
         root = new trieNode('\0');
     }
     
-    void insertRecur(trieNode* current, string word){
-        if(word.length()==0){
+    void insertRecur(trieNode* current, string word, int counter){
+        if(counter == word.length()){
             current->isTerminal = true;
             return;
         }
-        char c = word[0];
-        int index = c-'a';
+        int index = word[counter] - 'a';
         if(current->children[index] == NULL){
-            current -> children[index] = new trieNode(c);
+            current->children[index] = new trieNode(word[counter]);
         }
-        return  insertRecur(current -> children[index], word.substr(1));
+        insertRecur(current->children[index], word, counter+1);
     }
 
     void insert(string word) {
-        return insertRecur(root,word);
+        int i=0;
+        return insertRecur(root,word,i);
     }
     
-    bool searchRecur(trieNode* current, string word){
-        if(word.length() == 0){
+    bool searchRecur(trieNode* current, string word, int counter){
+        if(counter == word.length()){
             return current->isTerminal;
         }
-        int index = word[0] - 'a';
+        int index = word[counter] - 'a';
         if(current -> children[index] == NULL){
             return false;
         }
-        return searchRecur(current -> children[index], word.substr(1));
+        return searchRecur(current -> children[index], word, counter+1);
     }
 
     bool search(string word) {
-        return searchRecur(root, word);
+        int i=0;
+        return searchRecur(root, word, i);
     }
     
     bool startsWith(string prefix) {
